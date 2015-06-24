@@ -1,0 +1,16 @@
+{
+    "contents" : "# takes a character vector and a regular expression with curse_words and performs some cleaning.\npreprocessing <- function(content, curse_words){\n  # convert to all lowercase\n  content <- tolower(content)\n  \n  # add leading start\n  content <- paste(\"START\", content)\n  \n  # add the start and stop words word.\n  content <- gsub(\"!\", \" STOP START \", content)\n  content <- gsub(\"?\", \" STOP START \", content)\n  \n  # remove any character that is not an alpha-numeric or space\n  content <- gsub(\"[^a-zA-Z0-9 ]\", \"\", content)\n\n  # remove any extra whitespace and trailing or ending whitespace.\n  content <- gsub(\" +( )\", \"\\\\1\", content)\n  content <- gsub(\"^ *| *$\", \"\", content)\n  \n  # remove the curse words from the content\n  content <- gsub(curse_words, \"\", content)\n}",
+    "created" : 1432930326148.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1726367253",
+    "id" : "CA9FE1E1",
+    "lastKnownWriteTime" : 1432930144,
+    "path" : "~/data_science_capstone/preprocessing.R",
+    "project_path" : "preprocessing.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
